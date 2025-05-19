@@ -1,0 +1,75 @@
+/* ReactionSpeed.css */
+
+.retro-container {
+  background-color: #111;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  border: 4px solid #0f0;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: center;
+  box-shadow: 0 0 20px #0f0;
+}
+
+.retro-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 5px #0f0;
+}
+
+.status-box {
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  background-color: #222;
+  border: 2px dashed #0f0;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.ready {
+  color: #ff0;
+}
+
+.go {
+  color: #0ff;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.react-button {
+  background-color: #0f0;
+  color: #111;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background 0.3s ease;
+}
+
+.react-button:hover {
+  background-color: #3f3;
+}
+
+.stats {
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.stats p {
+  margin: 0.5rem 0;
+  color: #ccc;
+}
+
+.blink {
+  animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}

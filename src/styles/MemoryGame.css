@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Memory Game Container */
+.memory-container {
+  font-family: 'Press Start 2P', cursive;
+  background: #121212;
+  color: #00ff99;
+  border: 2px dashed #ff00e6;
+  padding: 20px;
+  width: 500px;
+  height: 500px;
+  max-width: 600px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Game Title */
+.memory-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #00ff99;
+  text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99;
+}
+
+/* 5x5 Grid Layout */
+.memory-grid.grid-5x5 {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  grid-template-rows: repeat(5, 60px);
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* Memory Card */
+.memory-card {
+  background-color: #262626;
+  border: 2px solid #00ff99;
+  color: #00ff99;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  box-shadow: 0 0 10px #00ff99;
+}
+
+/* Flipped Card */
+.memory-card.flipped {
+  background-color: #00ff99;
+  color: #1a1a1a;
+  transform: scale(1.05);
+}
+
+/* Info Section */
+.memory-info {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.memory-info button {
+  font-family: 'Press Start 2P', cursive;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #00ff99;
+  color: #1a1a1a;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 5px #00ff99;
+  transition: background-color 0.3s ease;
+}
+
+.memory-info button:hover {
+  background-color: #00cc77;
+}

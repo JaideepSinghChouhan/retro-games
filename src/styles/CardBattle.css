@@ -1,0 +1,81 @@
+
+
+.retro-title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #ffcc00;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.battlefield {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: #222;
+  border: 4px solid #00ff99;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 0 10px #00ff99;
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #ffcc00;
+}
+
+.health-bar {
+  height: 20px;
+  background-color: #ff4444;
+  border: 2px solid #fff;
+  margin-bottom: 0.5rem;
+  position: relative;
+  border-radius: 4px;
+}
+
+.health-bar-fill {
+  height: 100%;
+  background-color: #00ff00;
+  width: 100%;
+  transition: width 0.3s ease;
+}
+
+.actions {
+  margin-top: 2rem;
+}
+
+.actions button {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #ff00cc;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  margin: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px #990066;
+}
+
+.actions button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px #990066;
+}
+
+.status {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  color: #00ccff;
+}
+
+.victory-message {
+  font-size: 1rem;
+  color: #00ff99;
+  margin-top: 1rem;
+}

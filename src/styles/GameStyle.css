@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&display=swap');
+.retro-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #121212;
+  border: 2px dashed #ff00e6;
+  padding: 20px;
+  width: 500px;
+  height: 500px;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00ff9f;
+}
+
+.retro-container {
+  font-family: 'Press Start 2P', cursive;
+  background: #1a1a1a;
+  color: #00ff99;
+  padding: 40px 20px;
+  background: #121212;
+  border: 2px dashed #ff00e6;
+  padding: 20px;
+  width: 500px;
+  height: 500px;
+  max-width: 600px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.neon {
+  text-shadow: 0 0 5px #ff00e6, 0 0 10px #ff00e6;
+}
+
+.result-text {
+  font-size: 1.2rem;
+  color: #ff00e6;
+}
+
+.choice img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.result-text {
+  color: #ffcc00;
+}
+
+.neon {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.retro-input {
+  padding: 10px;
+  font-family: 'Press Start 2P';
+  border: 2px solid #00ff9f;
+  background: #ff00e65b;
+  opacity: .4;
+  color: #00ff9f;
+  width: 100px;
+}
+
+.dice-face {
+  font-size: 4rem;
+  margin: 2rem 0;
+  transition: transform 0.2s;
+  font-family: 'Press Start 2P', cursive;
+  color: #00ff9f;
+}
+
+.shake {
+  animation: shake 1s infinite;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}

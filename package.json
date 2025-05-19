@@ -11,8 +11,16 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
+    "autoprefixer": "^10.4.21",
+    "canvas-confetti": "^1.9.3",
+    "framer-motion": "^12.12.1",
+    "gsap": "^3.13.0",
+    "howler": "^2.2.4",
+    "postcss": "^8.5.3",
     "react": "^19.1.0",
+    "react-confetti": "^6.4.0",
     "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.0",
     "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
