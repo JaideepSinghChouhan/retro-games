@@ -5,7 +5,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   height: 100%;
   font-family: 'Press Start 2P', cursive;
@@ -84,6 +84,9 @@
 
 /* Responsive scaling */
 @media (max-width: 500px) {
+    .menu-background{
+        scale: 1;
+    }
   .game-name {
     font-size: 14px;
     width: 140px;
