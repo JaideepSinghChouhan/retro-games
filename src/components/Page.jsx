@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Menu from "./Menu";
 
-import bg  from '../assets/bg4.jpeg'
+import bg  from '../assets/sunset.png'
 import CardBattleGame from '../games/CardBattleGame'
 import DiceRoller from '../games/DiceRoller'
 import IdleClicker from '../games/IdleClicker'

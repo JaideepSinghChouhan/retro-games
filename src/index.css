@@ -1,1 +1,6 @@
 @import "tailwindcss";
+.arcade{
+    position: relative;
+    scale: 1.25;
+    bottom: 0px;
+}

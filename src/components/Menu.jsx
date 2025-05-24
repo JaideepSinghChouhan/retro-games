@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
 // import welcomeSound from "../assets/welcome.mp3";
+import arcade from "../assets/arcadebg.png";
 
 const gamesList = [
   { name: "Dice Roller", path: "/dice-roller" },
@@ -17,11 +18,11 @@ const gamesList = [
 ];
 
 export default function Menu() {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
-  const containerRef = useRef(null);
-  const bubblesRef = useRef([]);
   const audioRef = useRef(null);
   const navigate = useNavigate();
+  const gameNameRef = useRef(null);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -35,18 +36,8 @@ export default function Menu() {
 
     const timer = setTimeout(() => {
       setShowMenu(true);
-      gsap.fromTo(
-        bubblesRef.current,
-        { scale: 0, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          stagger: 0.1,
-          ease: "back.out(1.7)",
-          duration: 0.7,
-        }
-      );
-    }, 3500);
+      gsap.fromTo(gameNameRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5 });
+    }, 3000);
 
     return () => {
       clearTimeout(timer);
@@ -54,115 +45,114 @@ export default function Menu() {
     };
   }, []);
 
-  const radius = 150;
-  const centerX = 0;
-  const centerY = 0;
+  const nextGame = () => {
+    setCurrentIndex((prev) => (prev + 1) % gamesList.length);
+  };
 
-  const angleStep = (2 * Math.PI) / gamesList.length;
+  const prevGame = () => {
+    setCurrentIndex((prev) => (prev - 1 + gamesList.length) % gamesList.length);
+  };
+
+  const currentGame = gamesList[currentIndex];
 
   return (
     <div
-      ref={containerRef}
       style={{
-        position: "fixed",
+        position: "absolute",
         top: "50%",
         left: "50%",
-        width: "400px",
-        height: "400px",
         transform: "translate(-50%, -50%)",
+        width: "90%",
+        maxWidth: "500px",
+        height: "100%",
         fontFamily: "'Press Start 2P', cursive",
-        backgroundColor: "#121212",
-        border: "3px dashed #ff00e6",
-        borderRadius: "20px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        overflow: "visible",
+        textAlign: "center",
         userSelect: "none",
       }}
     >
       {/* <audio ref={audioRef} src={welcomeSound} /> */}
+      <img
+        src={arcade}
+        alt=""
+        style={{
+          position: "absolute",
+          left:"0px",
+          zIndex: -1,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          borderRadius: "20px",
+        }}
+      />
 
-      {!showMenu && (
-        <h1
-          style={{
-            color: "#00ff99",
-            textShadow: "0 0 8px #00ff99",
-            fontSize: "24px",
-            textAlign: "center",
-            width: "100%",
-            position: "absolute",
-          }}
-        >
+      {!showMenu ? (
+        <h1 style={{ position: "absolute",
+                    top: '20%',
+                    left: "30%",
+                    color: "#00ff99",   
+                    textShadow: "0 0 8px #00ff99", 
+                    fontSize: "24px", 
+                    marginTop: "180px" }}>
           Loading...
         </h1>
-      )}
+      ) : (
+        <>
+          <h2
+            ref={gameNameRef}
+            style={{
+              position: "absolute",
+              top: "32%",
+              left: "35%",             
+              color: "#00ff99",
+              textShadow: "0 0 6px #00ff99",
+              fontSize: "18px",
+              marginBottom: "20px",
+              marginTop: "140px",
+            }}
+          >
+            {currentGame.name}
+          </h2>
 
-      {showMenu && (
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          {gamesList.map((game, i) => {
-            const angle = i * angleStep - Math.PI / 2;
-            const x = centerX + radius * Math.cos(angle);
-            const y = centerY + radius * Math.sin(angle);
-            return (
-              <div
-                key={game.name}
-                ref={(el) => (bubblesRef.current[i] = el)}
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  width: "100px",
-                  height: "100px",
-                  marginLeft: "-50px",
-                  marginTop: "-50px",
-                  backgroundColor: "#00ff99",
-                  borderRadius: "50%",
-                  boxShadow: "0 0 12px #00ff99",
-                  color: "#121212",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  fontSize: "12px",
-                  fontWeight: "700",
-                  textAlign: "center",
-                  padding: "10px",
-                  cursor: "pointer",
-                  userSelect: "none",
-                  transform: `translate(${x}px, ${y}px)`,
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  willChange: "transform",
-                }}
-                onMouseEnter={(e) => {
-                  gsap.to(e.currentTarget, {
-                    scale: 1.2,
-                    boxShadow: "0 0 20px #ff00e6",
-                    duration: 0.3,
-                  });
-                }}
-                onMouseLeave={(e) => {
-                  gsap.to(e.currentTarget, {
-                    scale: 1,
-                    boxShadow: "0 0 12px #00ff99",
-                    duration: 0.3,
-                  });
-                }}
-                onClick={() => {
-                  navigate(game.path);
-                }}
-              >
-                {game.name}
-              </div>
-            );
-          })}
-        </div>
+          <div style={{  
+              position: "absolute",
+              top: '45%',
+              left: "25%",
+              display: "flex",
+              justifyContent: "center",
+              gap: "20px", 
+              marginBottom: "20px" }}>
+            <button onClick={prevGame} style={arrowStyle}>⟨</button>
+            <button onClick={() => navigate(currentGame.path)} style={playButtonStyle}>Play</button>
+            <button onClick={nextGame} style={arrowStyle}>⟩</button>
+          </div>
+        </>
       )}
     </div>
   );
 }
+
+const playButtonStyle = {
+  backgroundColor: "#00ff99",
+  color: "#121212",
+  border: "none",
+  borderRadius: "12px",
+  padding: "12px 24px",
+  fontSize: "14px",
+  fontWeight: "bold",
+  boxShadow: "0 0 12px #00ff99",
+  cursor: "pointer",
+  transition: "0.3s",
+};
+
+const arrowStyle = {
+  backgroundColor: "#ff00e6",
+  color: "#fff",
+  border: "none",
+  borderRadius: "50%",
+  width: "50px",
+  height: "50px",
+  fontSize: "20px",
+  boxShadow: "0 0 10px #ff00e6",
+  cursor: "pointer",
+  transition: "0.3s",
+};
