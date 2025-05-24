@@ -101,13 +101,12 @@ export default function Menu() {
             ref={gameNameRef}
             style={{
               position: "absolute",
-              top: "32%",
-              left: "35%",             
+              top: "34%",
+              left: "35%",    
+              width:"140px",         
               color: "#00ff99",
               textShadow: "0 0 6px #00ff99",
               fontSize: "18px",
-              marginBottom: "20px",
-              marginTop: "140px",
             }}
           >
             {currentGame.name}
