@@ -1,0 +1,106 @@
+/* Menu.css */
+
+.menu-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  height: 100%;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  user-select: none;
+}
+
+.menu-background {
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.loading-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00ff99;
+  text-shadow: 0 0 8px #00ff99;
+  font-size: 24px;
+}
+
+.game-name {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 175px;
+  color: #00ff99;
+  text-shadow: 0 0 6px #00ff99;
+  font-size: 18px;
+}
+
+.menu-controls {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+}
+
+.play-button {
+  background-color: #00ff99;
+  color: #121212;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 0 12px #00ff99;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.arrow-button {
+  background-color: #ff00e6;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  box-shadow: 0 0 10px #ff00e6;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Responsive scaling */
+@media (max-width: 500px) {
+  .game-name {
+    font-size: 14px;
+    width: 140px;
+  }
+
+  .play-button {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .arrow-button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .loading-text {
+    font-size: 20px;
+  }
+}

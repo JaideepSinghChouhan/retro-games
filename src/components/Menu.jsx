@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
+import "../styles/Menu.css"; // 🔗 Link to external CSS
 // import welcomeSound from "../assets/welcome.mp3";
 import arcade from "../assets/arcadebg.png";
 
@@ -56,102 +57,24 @@ export default function Menu() {
   const currentGame = gamesList[currentIndex];
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        width: "90%",
-        maxWidth: "500px",
-        height: "100%",
-        fontFamily: "'Press Start 2P', cursive",
-        textAlign: "center",
-        userSelect: "none",
-      }}
-    >
+    <div className="menu-container">
       {/* <audio ref={audioRef} src={welcomeSound} /> */}
-      <img
-        src={arcade}
-        alt=""
-        style={{
-          position: "absolute",
-          left:"0px",
-          zIndex: -1,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          borderRadius: "20px",
-        }}
-      />
+      <img src={arcade} alt="" className="menu-background" />
 
       {!showMenu ? (
-        <h1 style={{ position: "absolute",
-                    top: '20%',
-                    left: "30%",
-                    color: "#00ff99",   
-                    textShadow: "0 0 8px #00ff99", 
-                    fontSize: "24px", 
-                    marginTop: "180px" }}>
-          Loading...
-        </h1>
+        <h1 className="loading-text">Loading...</h1>
       ) : (
         <>
-          <h2
-            ref={gameNameRef}
-            style={{
-              position: "absolute",
-              top: "34%",
-              left: "35%",    
-              width:"140px",         
-              color: "#00ff99",
-              textShadow: "0 0 6px #00ff99",
-              fontSize: "18px",
-            }}
-          >
+          <h2 ref={gameNameRef} className="game-name">
             {currentGame.name}
           </h2>
-
-          <div style={{  
-              position: "absolute",
-              top: '45%',
-              left: "25%",
-              display: "flex",
-              justifyContent: "center",
-              gap: "20px", 
-              marginBottom: "20px" }}>
-            <button onClick={prevGame} style={arrowStyle}>⟨</button>
-            <button onClick={() => navigate(currentGame.path)} style={playButtonStyle}>Play</button>
-            <button onClick={nextGame} style={arrowStyle}>⟩</button>
+          <div className="menu-controls">
+            <button onClick={prevGame} className="arrow-button">⟨</button>
+            <button onClick={() => navigate(currentGame.path)} className="play-button">Play</button>
+            <button onClick={nextGame} className="arrow-button">⟩</button>
           </div>
         </>
       )}
     </div>
   );
 }
-
-const playButtonStyle = {
-  backgroundColor: "#00ff99",
-  color: "#121212",
-  border: "none",
-  borderRadius: "12px",
-  padding: "12px 24px",
-  fontSize: "14px",
-  fontWeight: "bold",
-  boxShadow: "0 0 12px #00ff99",
-  cursor: "pointer",
-  transition: "0.3s",
-};
-
-const arrowStyle = {
-  backgroundColor: "#ff00e6",
-  color: "#fff",
-  border: "none",
-  borderRadius: "50%",
-  width: "50px",
-  height: "50px",
-  fontSize: "20px",
-  boxShadow: "0 0 10px #ff00e6",
-  cursor: "pointer",
-  transition: "0.3s",
-};
